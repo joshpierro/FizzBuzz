@@ -4,6 +4,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -12,6 +13,30 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TextView output = (TextView)  findViewById(R.id.output_text);
+
+        StringBuilder outputText = new StringBuilder();
+
+        int i;
+        for(i=1;i<=100;i++){
+
+            if((i%3)==0 && (i%5)==0){
+                outputText.append("FizzBuzz");
+            }else if((i%3)==0){
+                outputText.append("Fizz");
+            }else if((i%5)==0){
+                outputText.append("Buzz");
+            }else{
+                outputText.append(Integer.toString(i));
+            }
+
+            outputText.append("\n");
+        }
+
+
+            output.setText(outputText);
+
     }
 
     @Override
